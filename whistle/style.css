@@ -42,6 +42,7 @@ background: rgba(0,0,0,0.1);
 
 }
 
-.fit-picture {
-width: 600;
+.watch-picture {
+width: 800;
+float: right;
 }
