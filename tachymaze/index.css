@@ -44,7 +44,7 @@ a:visited {
 }
 
 img {
-	
+
 	max-width: 100%;
 	height: auto;
 }
@@ -105,15 +105,16 @@ p {
 	max-width: 900px;
 	margin: 0 auto;
 	padding: 15px;
-	
+
 }
 
 .firstview {
 	/*background-image: url('marek-piwnicki-sirnsSiXRWM-unsplash.jpg'); */
 	background-image: url('back.jpg');
-	background-size: cover; /* You must set a specified height */
+	background-size: cover;
+	/* You must set a specified height */
 	max-width: 100%;
-} 
+}
 
 @media only screen and (min-width: 767px) {
 	.container {
@@ -129,7 +130,7 @@ p {
 	margin-bottom: 70px;
 	text-align: center;
 	align-items: center;
-	
+
 
 }
 
@@ -190,7 +191,7 @@ p {
 	top: 50%;
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
-  }
+}
 
 .intro {
 	max-width: 300px;
@@ -343,70 +344,74 @@ p {
 	float: left;
 	width: 50%;
 	padding: 30px;
-	
-  }
-  .column-left-text {
+
+}
+
+.column-left-text {
 	text-align: right;
-  }
+}
 
 .column-right {
 	float: right;
 	width: 50%;
 	padding: 30px;
 
-  }
-  .column-right-text {
+}
+
+.column-right-text {
 	text-align: left;
-  }
-  
-  /* Clear floats after image containers */
-  .row {
+}
+
+/* Clear floats after image containers */
+.row {
 	padding-bottom: 100px;
-  }
-  
-  .row::after {
+}
+
+.row::after {
 	content: "";
 	clear: both;
 	display: table;
-  }
+}
 
-  .wrapper {
+.wrapper {
 	display: grid;
-	grid-template-columns: 50% 50% ;
+	grid-template-columns: 50% 50%;
 	grid-gap: 10px;
 	padding: 50px;
 	/* background: rgb(241, 241, 247);
 	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(99,48,2,1) 15%, rgba(18,19,19,1) 100%); */
-  }
-  
-  .box {
-	
+}
+
+.box {
+
 	padding: 20px;
 	font-size: 150%;
-  }
-  
-  .a {
-	  grid-column-start: 2;
-	  grid-column-end: 3;
-	  grid-row-start: 1;
-	  grid-row-end: 2;
-	}
-	.b {
-	  grid-column-start: 2;
-	  grid-column-end: 3;
-	  grid-row-start: 2;
-	  grid-row-end: 3;
-	}
-	
-	.d {
-	  grid-column-start: 1;
-	  grid-column-end: 2;
-	  grid-row-start: 1;
-	  grid-row-end: 2;
-	}
-	.e {
-	  grid-column-start: 1;
-	  grid-column-end: 2;
-	  grid-row-start: 2;
-	  grid-row-end: 3;
-	}
+}
+
+.a {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.b {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.d {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.e {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
