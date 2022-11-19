@@ -360,6 +360,10 @@ p {
   }
   
   /* Clear floats after image containers */
+  .row {
+	padding-bottom: 100px;
+  }
+  
   .row::after {
 	content: "";
 	clear: both;
