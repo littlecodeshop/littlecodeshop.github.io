@@ -133,7 +133,6 @@ p {
 .intro-container a[href*="apps.apple.com"] {
 	display: inline-block; /* Allows padding and margin */
 	padding: 10px 20px;
-	background-color: #00A9FF; /* Accent color */
 	color: #ffffff; /* White text */
 	border-radius: 5px;
 	text-decoration: none;
@@ -144,7 +143,6 @@ p {
 
 .intro-container a[href*="apps.apple.com"]:hover,
 .intro-container a[href*="apps.apple.com"]:focus {
-	background-color: #007BBE; /* Darker accent */
 	color: #ffffff;
 	transform: translateY(-2px); /* Subtle lift */
 	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -351,7 +349,7 @@ p {
 /* .contact a:visited:hover, - Handled by general a:hover */
 /* .contact a:visited:focus { - Handled by general a:focus */
 	/* opacity: 1; */
-}
+
 
 @media only screen and (min-width: 767px) {
 	.contact {
@@ -364,7 +362,7 @@ p {
 	}
 }
 
-/* Removed .features (plural) class styling as it's unused */
+/* Removed .features (plural) class styling as it'sunused */
 /* Removed .column-left, .column-left-text, .column-right, .column-right-text as they are unused */
 
 .feature-title {
@@ -391,4 +389,14 @@ p {
 	content: "";
 	clear: both;
 	display: table;
+}
+
+.app-store-link {
+    text-decoration: none;
+    background: none;
+    display: inline-block;
+}
+
+.app-store-link:hover {
+    background: none;
 }
