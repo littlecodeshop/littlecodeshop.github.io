@@ -18,7 +18,7 @@ html {
 	width: 100%;
 	height: 100%;
 	min-height: 100%;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Open Sans', sans-serif; /* Updated default font */
 	-webkit-text-size-adjust: 100%;
 }
 
@@ -30,17 +30,25 @@ body {
 	min-height: 100%;
 	margin: 0;
 	padding: 0;
-	color: #fff;
-	background: #21272f;
+	color: #FFFFFF; /* Updated text color to white for better contrast */
+	background: #1A1D24; /* Updated background color */
 	font-size: 100%;
-	font-weight: 600;
+	font-weight: 400; /* Regular weight for Open Sans */
 	-webkit-font-smoothing: antialiased;
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme changes if any */
 }
 
 a:link,
 a:visited {
 	text-decoration: none;
-	color: #fff;
+	color: #00A9FF; /* Updated link color (accent) */
+	transition: color 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+	color: #40C4FF; /* Lighter accent for hover */
+	text-decoration: none; /* Ensure no underline on hover unless desired */
 }
 
 img {
@@ -51,8 +59,49 @@ img {
 
 p {
 	margin-bottom: 10px;
-	font-size: 18px;
+	font-size: 18px; /* Base paragraph size */
 	line-height: 1.6;
+	font-family: 'Open Sans', sans-serif; /* Ensure body font */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 575.98px) {
+	p {
+		font-size: 16px;
+	}
+
+	.intro h2 {
+		font-size: 24px;
+	}
+
+	.feature-title {
+		font-size: 125%; /* Approx 20px if base is 16px */
+	}
+
+	.row.feature {
+		padding-bottom: 40px;
+	}
+}
+
+/* Animation for feature sections */
+.feature {
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeInFeature 0.5s ease-out forwards;
+}
+
+/* Define a staggered delay for multiple features if desired, applied via JS or nth-child if structure is regular */
+/* For now, all features will fade in as they become visible if JS is used, or simultaneously if not */
+
+@keyframes fadeInFeature {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .responsive {
@@ -71,7 +120,7 @@ p {
 	width: 100%;
 	height: 2px;
 	margin: 15px 0;
-	background: rgba(255, 255, 255, 0.1);
+	background: #333A45; /* Darker separator to fit new theme */
 }
 
 @media only screen and (min-width: 767px) {
@@ -80,21 +129,45 @@ p {
 	}
 }
 
-.primary-btn {
-	padding: 15px;
-	text-transform: uppercase;
-	color: rgba(255, 255, 255, 0.5);
-	border: 2px solid rgba(255, 255, 255, 0.6);
-	border-radius: 3px;
-	font-size: 15px;
-	font-weight: 500;
+/* Styling for App Store button link */
+.intro-container a[href*="apps.apple.com"] {
+	display: inline-block; /* Allows padding and margin */
+	padding: 10px 20px;
+	background-color: #00A9FF; /* Accent color */
+	color: #ffffff; /* White text */
+	border-radius: 5px;
+	text-decoration: none;
+	font-weight: 600; /* Montserrat bold */
+	font-family: 'Montserrat', sans-serif;
+	transition: background-color 0.2s ease-in-out, transform 0.2s ease;
 }
 
-.primary-btn:hover {
-	transition: all 0.1s ease-in-out;
-	color: #21272f;
-	background: #fff;
-	box-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.2);
+.intro-container a[href*="apps.apple.com"]:hover,
+.intro-container a[href*="apps.apple.com"]:focus {
+	background-color: #007BBE; /* Darker accent */
+	color: #ffffff;
+	transform: translateY(-2px); /* Subtle lift */
+	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+.primary-btn { /* Kept if used elsewhere, or for general button styling */
+	padding: 15px;
+	text-transform: uppercase;
+	color: #FFFFFF; /* Updated text color to white */
+	background-color: transparent;
+	border: 2px solid #00A9FF; /* Accent color border */
+	border-radius: 3px;
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	transition: all 0.2s ease-in-out;
+}
+
+.primary-btn:hover, .primary-btn:focus {
+	color: #1A1D24; /* Background color for text */
+	background-color: #00A9FF; /* Accent color background */
+	box-shadow: 0 4px 10px rgba(0, 169, 255, 0.3);
 }
 
 .container {
@@ -143,15 +216,8 @@ p {
 	}
 }
 
-.mb-3 {
-	height: 50;
-}
-
-.app-store-btn::before {
-	padding-right: 8px;
-	content: '';
-	font-size: 16px;
-}
+/* Removed .mb-3 as it's unused and not standard Bootstrap height utility */
+/* Removed .app-store-btn::before as it's unused */
 
 .app-icon {
 	width: 90px;
@@ -162,15 +228,17 @@ p {
 
 .app-icon p {
 	font-size: 35px;
-	color: darkorange;
-	font-weight: 800;
+	color: #00A9FF; /* Accent color */
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700; /* Montserrat Bold */
 	white-space: nowrap;
 }
 
 .app-name {
 	font-size: 35px;
-	color: darkorange;
-	font-weight: 800;
+	color: #00A9FF; /* Accent color */
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700; /* Montserrat Bold */
 	white-space: nowrap;
 	vertical-align: middle;
 }
@@ -185,13 +253,7 @@ p {
 	}
 }
 
-.vertical-center {
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
-}
+/* Removed .vertical-center as it's unused */
 
 .intro {
 	max-width: 300px;
@@ -213,9 +275,11 @@ p {
 
 .intro h2 {
 	margin-bottom: 20px;
-	font-size: 28px;
-	font-weight: 600;
+	font-size: 28px; /* Base for larger than 576px */
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600; /* Montserrat Semi-Bold */
 	line-height: 1.2;
+	color: #FFFFFF; /* Main text color (white) */
 }
 
 @media only screen and (min-width: 580px) {
@@ -242,36 +306,7 @@ p {
 	}
 }
 
-.iphone-screenshot {
-	position: relative;
-	z-index: 100;
-	overflow: hidden;
-	width: 86.5%;
-	height: 0;
-	margin: 0 auto;
-	padding-bottom: 182%;
-}
-
-@media only screen and (min-width: 767px) {
-	.iphone-screenshot {
-		z-index: 1;
-		width: 87%;
-	}
-}
-
-.iphone-screenshot img {
-	position: absolute;
-	top: 13.88%;
-	left: 0;
-}
-
-.iphone-mask {
-	position: absolute;
-	z-index: 10;
-	top: 0;
-	left: 0;
-	display: block;
-}
+/* Removed .iphone-screenshot and .iphone-mask as they are unused */
 
 .footer {
 	margin-bottom: 10px;
@@ -290,6 +325,7 @@ p {
 }
 
 .credit a:hover {
+	color: #40C4FF; /* Lighter accent for hover, consistent with other links */
 	text-decoration: underline;
 }
 
@@ -299,21 +335,22 @@ p {
 
 .contact a {
 	padding-right: 20px;
+	/* Hover effect inherited from general 'a:hover' */
 }
 
 .contact a,
 .contact a:visited {
-	transition: opacity 0.5s ease-out;
+	/* transition: opacity 0.5s ease-out; */ /* Handled by general link transition */
 	text-decoration: none;
-	opacity: 0.7;
-	color: #fff;
+	/* opacity: 0.7; */ /* Color is now primary link color, can adjust if too bright */
+	color: #00A9FF; /* Accent color for contact links too */
 }
 
-.contact a:hover,
-.contact a:focus,
-.contact a:visited:hover,
-.contact a:visited:focus {
-	opacity: 1;
+/* .contact a:hover, - Handled by general a:hover */
+/* .contact a:focus, - Handled by general a:focus */
+/* .contact a:visited:hover, - Handled by general a:hover */
+/* .contact a:visited:focus { - Handled by general a:focus */
+	/* opacity: 1; */
 }
 
 @media only screen and (min-width: 767px) {
@@ -327,91 +364,31 @@ p {
 	}
 }
 
-.features {
-	padding: 50px;
-	font-weight: 600;
-	align-items: center;
-}
+/* Removed .features (plural) class styling as it's unused */
+/* Removed .column-left, .column-left-text, .column-right, .column-right-text as they are unused */
 
 .feature-title {
-	color: darkorange;
-	font-weight: 800;
+	color: #00A9FF; /* Accent color */
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600; /* Montserrat Semi-Bold */
 	font-size: 150%;
 	padding-bottom: 10px;
 }
 
-.column-left {
-	float: left;
-	width: 50%;
-	padding: 30px;
-
-}
-
-.column-left-text {
-	text-align: right;
-}
-
-.column-right {
-	float: right;
-	width: 50%;
-	padding: 30px;
-
-}
-
-.column-right-text {
-	text-align: left;
-}
-
 /* Clear floats after image containers */
-.row {
-	padding-bottom: 100px;
+.row.feature { /* Targeting feature rows specifically */
+	padding-bottom: 80px; /* Reduced from 100px for larger screens */
 }
+
+@media (min-width: 767px) {
+	.row.feature {
+		padding-bottom: 60px; /* Further refined for medium screens */
+	}
+}
+
 
 .row::after {
 	content: "";
 	clear: both;
 	display: table;
-}
-
-.wrapper {
-	display: grid;
-	grid-template-columns: 50% 50%;
-	grid-gap: 10px;
-	padding: 50px;
-	/* background: rgb(241, 241, 247);
-	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(99,48,2,1) 15%, rgba(18,19,19,1) 100%); */
-}
-
-.box {
-
-	padding: 20px;
-	font-size: 150%;
-}
-
-.a {
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 1;
-	grid-row-end: 2;
-}
-
-.b {
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 2;
-	grid-row-end: 3;
-}
-
-.d {
-	grid-column-start: 1;
-	grid-column-end: 2;
-	grid-row-start: 1;
-	grid-row-end: 2;
-}
-
-.e {
-	grid-column-start: 1;
-	grid-column-end: 2;
-	grid-row-start: 2;
-	grid-row-end: 3;
 }
