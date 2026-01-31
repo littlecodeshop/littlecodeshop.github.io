@@ -1693,7 +1693,12 @@
     "scpi": "Iroko Atlas",
     "gerant": "Iroko",
     "strategie": "Diversifiée",
-    "distribution_rates": [],
+    "distribution_rates": [
+      {
+        "year": 2025,
+        "rate": 9.41
+      }
+    ],
     "souscription": 200.0,
     "retrait": 200.0,
     "reconstitution": null,
