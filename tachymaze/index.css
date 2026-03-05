@@ -1,3 +1,17 @@
+:root {
+	--primary-color: #00A9FF;
+	--primary-hover: #40C4FF;
+	--background-color: #1A1D24;
+	--text-color: #FFFFFF;
+	--accent-color: #00A9FF;
+	--separator-color: #333A45;
+	--font-primary: 'Montserrat', sans-serif;
+	--font-secondary: 'Open Sans', sans-serif;
+	--transition-speed: 0.3s;
+	--border-radius: 8px;
+	--shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 h1,
 h2,
 h3,
@@ -18,7 +32,7 @@ html {
 	width: 100%;
 	height: 100%;
 	min-height: 100%;
-	font-family: 'Open Sans', sans-serif; /* Updated default font */
+	font-family: var(--font-secondary);
 	-webkit-text-size-adjust: 100%;
 }
 
@@ -30,38 +44,37 @@ body {
 	min-height: 100%;
 	margin: 0;
 	padding: 0;
-	color: #FFFFFF; /* Updated text color to white for better contrast */
-	background: #1A1D24; /* Updated background color */
+	color: var(--text-color);
+	background: var(--background-color);
 	font-size: 100%;
-	font-weight: 400; /* Regular weight for Open Sans */
+	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
-	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme changes if any */
+	transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 a:link,
 a:visited {
 	text-decoration: none;
-	color: #00A9FF; /* Updated link color (accent) */
+	color: var(--primary-color);
 	transition: color 0.2s ease-in-out;
 }
 
 a:hover,
 a:focus {
-	color: #40C4FF; /* Lighter accent for hover */
-	text-decoration: none; /* Ensure no underline on hover unless desired */
+	color: var(--primary-hover);
+	text-decoration: none;
 }
 
 img {
-
 	max-width: 100%;
 	height: auto;
 }
 
 p {
 	margin-bottom: 10px;
-	font-size: 18px; /* Base paragraph size */
+	font-size: 18px;
 	line-height: 1.6;
-	font-family: 'Open Sans', sans-serif; /* Ensure body font */
+	font-family: var(--font-secondary);
 }
 
 /* Responsive adjustments for smaller screens */
@@ -75,7 +88,7 @@ p {
 	}
 
 	.feature-title {
-		font-size: 125%; /* Approx 20px if base is 16px */
+		font-size: 125%;
 	}
 
 	.row.feature {
@@ -89,9 +102,6 @@ p {
 	transform: translateY(20px);
 	animation: fadeInFeature 0.5s ease-out forwards;
 }
-
-/* Define a staggered delay for multiple features if desired, applied via JS or nth-child if structure is regular */
-/* For now, all features will fade in as they become visible if JS is used, or simultaneously if not */
 
 @keyframes fadeInFeature {
 	from {
@@ -120,7 +130,7 @@ p {
 	width: 100%;
 	height: 2px;
 	margin: 15px 0;
-	background: #333A45; /* Darker separator to fit new theme */
+	background: var(--separator-color);
 }
 
 @media only screen and (min-width: 767px) {
@@ -131,40 +141,32 @@ p {
 
 /* Styling for App Store button link */
 .intro-container a[href*="apps.apple.com"] {
-	display: inline-block; /* Allows padding and margin */
-	padding: 10px 20px;
-	color: #ffffff; /* White text */
-	border-radius: 5px;
+	display: inline-block;
 	text-decoration: none;
-	font-weight: 600; /* Montserrat bold */
-	font-family: 'Montserrat', sans-serif;
-	transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+	transition: transform var(--transition-speed) ease;
 }
 
 .intro-container a[href*="apps.apple.com"]:hover,
 .intro-container a[href*="apps.apple.com"]:focus {
-	color: #ffffff;
-	transform: translateY(-2px); /* Subtle lift */
-	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	transform: scale(1.05);
 }
 
-
-.primary-btn { /* Kept if used elsewhere, or for general button styling */
+.primary-btn {
 	padding: 15px;
 	text-transform: uppercase;
-	color: #FFFFFF; /* Updated text color to white */
+	color: var(--text-color);
 	background-color: transparent;
-	border: 2px solid #00A9FF; /* Accent color border */
-	border-radius: 3px;
+	border: 2px solid var(--primary-color);
+	border-radius: var(--border-radius);
 	font-size: 15px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: var(--font-primary);
 	font-weight: 600;
 	transition: all 0.2s ease-in-out;
 }
 
 .primary-btn:hover, .primary-btn:focus {
-	color: #1A1D24; /* Background color for text */
-	background-color: #00A9FF; /* Accent color background */
+	color: var(--background-color);
+	background-color: var(--primary-color);
 	box-shadow: 0 4px 10px rgba(0, 169, 255, 0.3);
 }
 
@@ -173,18 +175,31 @@ p {
 	overflow: hidden;
 	box-sizing: border-box;
 	width: 100%;
-	max-width: 900px;
+	max-width: 1200px;
 	margin: 0 auto;
 	padding: 15px;
-
 }
 
 .firstview {
-	/*background-image: url('marek-piwnicki-sirnsSiXRWM-unsplash.jpg'); */
 	background-image: url('back.jpg');
 	background-size: cover;
-	/* You must set a specified height */
+	background-position: center;
 	max-width: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.firstview::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(26, 29, 36, 0.7);
+	z-index: 1;
 }
 
 @media only screen and (min-width: 767px) {
@@ -200,9 +215,9 @@ p {
 	margin-top: 30px;
 	margin-bottom: 70px;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
-
-
 }
 
 @media only screen and (min-width: 767px) {
@@ -211,47 +226,40 @@ p {
 		width: 42%;
 		margin-bottom: 0;
 		text-align: left;
+		align-items: flex-start;
 	}
 }
-
-/* Removed .mb-3 as it's unused and not standard Bootstrap height utility */
-/* Removed .app-store-btn::before as it's unused */
 
 .app-icon {
 	width: 90px;
 	margin: 0 auto;
-	filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
-	-webkit-filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
+	filter: drop-shadow(0 0 10px rgba(0, 169, 255, 0.3));
+	-webkit-filter: drop-shadow(0 0 10px rgba(0, 169, 255, 0.3));
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 
-.app-icon p {
-	font-size: 35px;
-	color: #00A9FF; /* Accent color */
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 700; /* Montserrat Bold */
-	white-space: nowrap;
+.app-icon img {
+	width: 80px;
+	height: 80px;
+	border-radius: 20px;
+	box-shadow: var(--shadow);
 }
 
 .app-name {
 	font-size: 35px;
-	color: #00A9FF; /* Accent color */
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 700; /* Montserrat Bold */
+	color: var(--primary-color);
+	font-family: var(--font-primary);
+	font-weight: 700;
 	white-space: nowrap;
-	vertical-align: middle;
 }
 
 @media only screen and (min-width: 767px) {
 	.app-icon {
 		margin: 0;
 	}
-
-	.app-icon p {
-		margin-left: 2px;
-	}
 }
-
-/* Removed .vertical-center as it's unused */
 
 .intro {
 	max-width: 300px;
@@ -269,20 +277,19 @@ p {
 	}
 }
 
-
-
 .intro h2 {
 	margin-bottom: 20px;
-	font-size: 28px; /* Base for larger than 576px */
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 600; /* Montserrat Semi-Bold */
+	font-size: 28px;
+	font-family: var(--font-primary);
+	font-weight: 600;
 	line-height: 1.2;
-	color: #FFFFFF; /* Main text color (white) */
+	color: var(--text-color);
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 @media only screen and (min-width: 580px) {
 	.intro h2 {
-		font-size: 30px;
+		font-size: 36px;
 	}
 }
 
@@ -292,6 +299,7 @@ p {
 	height: 300px;
 	margin: 0 auto;
 	padding-bottom: 50px;
+	z-index: 10;
 }
 
 @media only screen and (min-width: 767px) {
@@ -304,99 +312,137 @@ p {
 	}
 }
 
-/* Removed .iphone-screenshot and .iphone-mask as they are unused */
+.iphone img {
+	max-width: 100%;
+	height: auto;
+}
+
+.iphone img:hover {
+	opacity: 1;
+}
 
 .footer {
 	margin-bottom: 10px;
 }
 
+.footer-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
 .footer p {
 	opacity: 0.7;
+	margin: 0;
 }
 
 .credit {
-	float: left;
+	flex: 1;
 }
 
 .credit a {
 	opacity: 1;
+	transition: color var(--transition-speed) ease;
 }
 
 .credit a:hover {
-	color: #40C4FF; /* Lighter accent for hover, consistent with other links */
+	color: var(--primary-hover);
 	text-decoration: underline;
 }
 
 .contact {
-	float: left;
+	display: flex;
+	gap: 20px;
 }
 
 .contact a {
-	padding-right: 20px;
-	/* Hover effect inherited from general 'a:hover' */
-}
-
-.contact a,
-.contact a:visited {
-	/* transition: opacity 0.5s ease-out; */ /* Handled by general link transition */
 	text-decoration: none;
-	/* opacity: 0.7; */ /* Color is now primary link color, can adjust if too bright */
-	color: #00A9FF; /* Accent color for contact links too */
+	color: var(--primary-color);
+	transition: color var(--transition-speed) ease;
+	padding: 0;
 }
 
-/* .contact a:hover, - Handled by general a:hover */
-/* .contact a:focus, - Handled by general a:focus */
-/* .contact a:visited:hover, - Handled by general a:hover */
-/* .contact a:visited:focus { - Handled by general a:focus */
-	/* opacity: 1; */
+@media (max-width: 767px) {
+	.footer-content {
+		flex-direction: column;
+		text-align: center;
+	}
 
-
-@media only screen and (min-width: 767px) {
 	.contact {
-		text-align: right;
-	}
-
-	.contact a {
-		padding-right: 0;
-		padding-left: 12px;
+		justify-content: center;
 	}
 }
 
-/* Removed .features (plural) class styling as it'sunused */
-/* Removed .column-left, .column-left-text, .column-right, .column-right-text as they are unused */
-
-.feature-title {
-	color: #00A9FF; /* Accent color */
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 600; /* Montserrat Semi-Bold */
-	font-size: 150%;
-	padding-bottom: 10px;
-}
-
-/* Clear floats after image containers */
-.row.feature { /* Targeting feature rows specifically */
-	padding-bottom: 80px; /* Reduced from 100px for larger screens */
+.feature {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 80px;
+	gap: 20px;
 }
 
 @media (min-width: 767px) {
-	.row.feature {
-		padding-bottom: 60px; /* Further refined for medium screens */
+	.feature {
+		flex-direction: row;
+		padding-bottom: 60px;
 	}
 }
 
+.feature.reverse {
+	flex-direction: column-reverse;
+}
 
-.row::after {
-	content: "";
-	clear: both;
-	display: table;
+@media (min-width: 767px) {
+	.feature.reverse {
+		flex-direction: row-reverse;
+	}
+}
+
+.feature-content {
+	width: 100%;
+	text-align: center;
+}
+
+@media (min-width: 767px) {
+	.feature-content {
+		width: 50%;
+		text-align: left;
+		padding: 0 20px;
+	}
+}
+
+.feature-image {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+@media (min-width: 767px) {
+	.feature-image {
+		width: 50%;
+		justify-content: flex-end;
+	}
+}
+
+.feature.reverse .feature-image {
+	justify-content: flex-start;
+}
+
+.feature-image img {
+	max-width: 100%;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+	transition: transform var(--transition-speed) ease;
+}
+
+.feature-image img:hover {
+	transform: translateY(-5px);
 }
 
 .app-store-link {
-    text-decoration: none;
-    background: none;
-    display: inline-block;
-}
-
-.app-store-link:hover {
-    background: none;
+	text-decoration: none;
+	background: none;
+	display: inline-block;
 }
