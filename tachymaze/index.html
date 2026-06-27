@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="device-cluster.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -21,18 +22,6 @@
   .feature-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(43,30,20,.1) !important; }
   .cta-final:hover { transform: translateY(-3px); background: #D2540F !important; }
 
-  .device-cluster { position: relative; display: flex; align-items: center; justify-content: center; min-height: 460px; width: 100%; }
-  .device-cluster-glow { position: absolute; inset: 8% 12%; background: radial-gradient(circle, rgba(237,106,30,.46), rgba(237,106,30,0) 65%); filter: blur(10px); pointer-events: none; z-index: 0; }
-  .device-cluster-inner { position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: center; }
-  .phone-shell { position: relative; width: clamp(210px,23vw,272px); padding: 10px; background: linear-gradient(155deg,#2E2620,#0C0A09); border-radius: 42px; box-shadow: 0 36px 70px rgba(0,0,0,.5), inset 0 0 0 1.5px rgba(255,255,255,.06); transform: rotate(-3deg); z-index: 1; }
-  .phone-btn-left { position: absolute; top: 50%; left: -3px; width: 3px; height: 50px; background: #3D332B; border-radius: 3px 0 0 3px; transform: translateY(-80px); }
-  .phone-btn-right { position: absolute; top: 50%; right: -3px; width: 3px; height: 66px; background: #3D332B; border-radius: 0 3px 3px 0; transform: translateY(-24px); }
-  .phone-screen { position: relative; border-radius: 33px; overflow: hidden; background: #000; aspect-ratio: 9/19.5; }
-  .phone-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .phone-notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 34%; height: 20px; background: #000; border-radius: 999px; }
-  .watch-shell { position: relative; width: clamp(118px,13vw,155px); margin-left: -44px; margin-bottom: -14px; aspect-ratio: 560/880; z-index: 2; filter: drop-shadow(0 16px 36px rgba(0,0,0,.55)); }
-  .watch-shell .watch-screen-img { position: absolute; left: 15px; top: 49px; width: 119px; height: 137px; object-fit: cover; border-radius: 12%; display: block; }
-  .watch-shell .watch-frame-img { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; display: block; left: -2px; top: -5px; }
 </style>
 </head>
 <body style="width:100%;background:#FBF7F1;color:#1C1714;overflow-x:hidden">
@@ -86,24 +75,7 @@
           <span style="display:flex;align-items:center;gap:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4FB8AC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>iPhone · Apple Watch</span>
         </div>
       </div>
-      <!-- Device Cluster -->
-      <div class="device-cluster">
-        <div class="device-cluster-glow"></div>
-        <div class="device-cluster-inner">
-          <div class="phone-shell">
-            <div class="phone-btn-left"></div>
-            <div class="phone-btn-right"></div>
-            <div class="phone-screen">
-              <img src="assets/screen-ios.png" alt="iPhone screen">
-              <div class="phone-notch"></div>
-            </div>
-          </div>
-          <div class="watch-shell">
-            <img src="assets/screen-watch.png" alt="Watch navigation" class="watch-screen-img">
-            <img src="assets/watch-frame.png" alt="" aria-hidden="true" class="watch-frame-img">
-          </div>
-        </div>
-      </div>
+      <device-cluster show-phone="true" show-watch="true" phone-screen="assets/screen-ios.png" watch-screen="assets/screen-watch.png"></device-cluster>
     </div>
   </section>
 
@@ -216,10 +188,7 @@
         </div>
       </div>
       <div style="display:flex;justify-content:center;align-items:center">
-        <div style="position:relative;width:clamp(228px,26vw,300px);aspect-ratio:560/880;filter:drop-shadow(0 36px 70px rgba(43,30,20,.38))">
-          <img src="assets/screen-watch.png" alt="Tachymaze watch navigation" style="position:absolute;left:14%;top:15.5%;width:72%;height:66%;object-fit:cover;border-radius:12%;display:block">
-          <img src="assets/watch-frame.png" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:block">
-        </div>
+        <device-cluster show-phone="false" show-watch="true" phone-screen="assets/screen-ios.png" watch-screen="assets/screen-watch.png"></device-cluster>  
       </div>
     </div>
   </section>
